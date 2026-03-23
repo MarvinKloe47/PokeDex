@@ -56,12 +56,22 @@ async function fetchPokemonByRegion(regionKey) {
   const speciesNames = data.pokemon_species.map((species) => species.name);
 
   const requests = speciesNames.map(async (name) => {
-    const res = await fetch(`${apiUrl}/${name}`);
-    if (!res.ok) {
-      console.warn(`Skipping Pokemon with missing data: ${name}`);
+    const speciesRes = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${name}`);
+    if (!speciesRes.ok) {
+      console.warn(`Skipping species with missing data: ${name}`);
       return null;
     }
-    return res.json();
+
+    const speciesData = await speciesRes.json();
+    const defaultVariety = speciesData.varieties.find((v) => v.is_default);
+    const pokemonName = defaultVariety ? defaultVariety.pokemon.name : name;
+
+    const pokemonRes = await fetch(`${apiUrl}/${pokemonName}`);
+    if (!pokemonRes.ok) {
+      console.warn(`Skipping Pokemon with missing data: ${pokemonName}`);
+      return null;
+    }
+    return pokemonRes.json();
   });
 
   const results = await Promise.all(requests);
