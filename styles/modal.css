@@ -1,0 +1,303 @@
+/* MODAL OVERLAY */
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: modalFadeIn 0.3s ease;
+  }
+  
+  /* ANIMATION */
+  @keyframes modalFadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  /* MODAL-CARD */
+  .modal-content {
+    width: 420px;
+    background-color: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    font-family: Arial, sans-serif;
+    position: relative;
+  }
+  
+  /* HEADER-BEREICH */
+  .modal-header {
+    position: relative;
+    padding: 20px;
+    height: 240px;
+    color: white;
+    background-color: #aaa;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  
+  /* Pokéball Background */
+  .pokeball-bg {
+    position: absolute;
+    width: 140px;
+    top: 15px;
+    right: 15px;
+    opacity: 0.1;
+    z-index: 1;
+  }
+  
+  /* Pokémon-Bild schön zentriert & groß */
+  .pokemon-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 120px;
+    z-index: 2;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.25));
+    pointer-events: none;
+  }
+  
+  
+
+  
+  /* Name + ID */
+  .modal-header h2 {
+    font-size: 24px;
+    margin: 0;
+    z-index: 3;
+    position: relative;
+  }
+  
+  .poke-id {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-weight: bold;
+    z-index: 3;
+  }
+  
+  /* Typen */
+  .type-container {
+    margin-top: 10px;
+    z-index: 3;
+    position: relative;
+  }
+  
+  .type-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 5px;
+  }
+  
+  /* TABS */
+  .modal-tabs {
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    margin-top: -20px;
+    z-index: 3;
+    position: relative;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .modal-tabs button {
+    flex: 1;
+    padding: 12px;
+    font-weight: bold;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.2s;
+  }
+  
+  .modal-tabs button:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .modal-tabs button.active {
+    background: black;
+    color: white;
+    border-radius: 6px 6px 0 0;
+  }
+  
+  /* INFO-BEREICH */
+  .info-box {
+    padding: 20px;
+    font-size: 15px;
+    text-align: left;
+    color: #444;
+  }
+  
+  .info-box p {
+    margin: 12px 0;
+  }
+  
+  /* STATS-BALKEN */
+  .stats-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .stat-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .stat-name {
+    width: 100px;
+    font-weight: bold;
+  }
+  
+  .stat-bar {
+    flex: 1;
+    background: #eee;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 10px;
+  }
+  
+  .stat-fill {
+    background: #4caf50;
+    height: 10px;
+  }
+  
+  /* EVOLUTION CHAIN */
+  .evolution-chain {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+  }
+  
+  .evolution-stage {
+    text-align: center;
+  }
+  
+  .evolution-stage img {
+    height: 60px;
+  }
+  
+  /* NAVIGATION BUTTONS */
+  .modal-nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    border-top: 1px solid #eee;
+  }
+  
+  .modal-nav button {
+    background: white;
+    border: 2px solid #333;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+  
+  .modal-nav button:hover {
+    background: #f0f0f0;
+  }
+  
+  /* X-BUTTON (oben rechts) */
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 180px;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    padding: 4px 10px;
+    cursor: pointer;
+    z-index: 5;
+    transition: 0.2s;
+  }
+  
+  .close-button:hover {
+    background: rgba(0, 0, 0, 0.5);
+  }
+  
+ 
+  
+  
+  
+  /* TYP-FARBEN (per JS gesetzt) */
+  .type-fire    { background-color: #f57d31 !important; }
+  .type-water   { background-color: #6493eb !important; }
+  .type-grass   { background-color: #74cb48 !important; }
+  .type-poison  { background-color: #a43e9e !important; }
+  .type-flying  { background-color: #a891ec !important; }
+  .type-electric{ background-color: #f9cf30 !important; }
+  .type-ice     { background-color: #9ad6df !important; }
+  .type-bug     { background-color: #a7b723 !important; }
+  .type-normal  { background-color: #aaa67f !important; }
+  .type-dark    { background-color: #75574c !important; }
+  .type-ghost   { background-color: #70559b !important; }
+  .type-psychic { background-color: #fb5584 !important; }
+  
+  /* DARK MODE READY */
+  body.dark .modal-content {
+    background-color: #222;
+    color: #eee;
+  }
+  
+  body.dark .info-box p {
+    color: #ccc;
+  }
+  
+  body.dark .modal-tabs button.active {
+    background: #eee;
+    color: #111;
+  }
+  
+  /* RESPONSIVE */
+  @media (max-width: 480px) {
+    .modal-content {
+      width: 90vw;
+      border-radius: 16px;
+    }
+  
+    .pokemon-img {
+      height: 100px;
+      bottom: -20px;
+    }
+  
+    .modal-tabs button {
+      font-size: 16px;
+      padding: 10px;
+    }
+  
+    .info-box {
+      font-size: 16px;
+    }
+  
+    .modal-nav button {
+      width: 32px;
+      height: 32px;
+      font-size: 16px;
+    }
+  }
+  
