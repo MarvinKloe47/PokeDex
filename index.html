@@ -43,7 +43,11 @@
 
         </div>
 
-      
+      <div id="regionSelect" class="region-bar">
+        <button class="region-btn active" data-region="all" onclick="setRegion('all')">All</button>
+        <button class="region-btn" data-region="kanto" onclick="setRegion('kanto')">Kanto</button>
+        <button class="region-btn" data-region="hoenn" onclick="setRegion('hoenn')">Hoenn</button>
+      </div>
 
       <div class="poke-container" id="poke-container"></div>
       <button class="load-more" id="load-more_btn" onclick="loadMorePokemon()">Load More</button>
