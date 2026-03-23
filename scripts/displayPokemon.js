@@ -55,10 +55,12 @@ function formatPokemonName(name) {
   return formattedName;
 }
 
-async function displayPokemonList() {
-  const pokemonData = await fetchPokemon();
-  pokemonData.forEach((pokemon, index, data) => {
-    createPokemonCard(pokemon, index, data);
+async function displayPokemonList(pokemonData = null) {
+  const data = pokemonData || await fetchPokemon();
+  const listForModal = pokemonData || pokemonList;
+  data.forEach((pokemon) => {
+    const index = listForModal.indexOf(pokemon);
+    createPokemonCard(pokemon, index, listForModal);
   });
 }
 
@@ -67,9 +69,6 @@ function setupDarkModeToggle() {
   darkModeButton.addEventListener("click", () => {
     document.body.classList.toggle("dark-mode");
     darkModeButton.classList.toggle("fa-toggle-on");
-    document.querySelectorAll(".regionvalue").forEach((region) =>
-      region.classList.toggle("dark-mode")
-    );
   });
 }
 
@@ -79,4 +78,10 @@ setupDarkModeToggle();
 function appendPokemonCard(container, card) {
   container.appendChild(card);
   pokemonContainer.appendChild(container);
+}
+
+function clearPokemonCards() {
+  pokemonContainer.innerHTML = "";
+  const noResultsMessage = document.getElementById("no-results-message");
+  if (noResultsMessage) noResultsMessage.remove();
 }
