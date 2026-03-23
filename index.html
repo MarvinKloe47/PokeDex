@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styles/modal.css">
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="icon" href="./Icons/pokeball.png" type="image/x-icon">
+    <title>Pokedex</title>
+  </head>
+  <body >
+    <div id="page">
+      <div class="header">
+
+        <div class="logo">
+          <img class="img" src="./Icons/default/pokeball.png" alt="logo" />
+        </div>
+
+        <div class="box">
+          <input
+            id="searchbar"
+            onkeyup="filterPokemonCards()"
+            type="text"
+            placeholder="Search"
+          />
+        </div>
+
+        <div class="features">
+          <div class="darkmode-container">
+              <div class="darkmode-content">
+                <span class="darkmode-text">Dark Mode</span>
+                <i class="fa-solid fa-toggle-off" id="dark"></i>
+              </div>
+          </div>
+          
+          
+        </div>
+
+        </div>
+
+      
+
+      <div class="poke-container" id="poke-container"></div>
+      <button class="load-more" id="load-more_btn" onclick="loadMorePokemon()">Load More</button>
+      <div id="loader" class="loader">
+        <img src="assets/img/pokeball-loader.gif" alt="Lädt...">
+      </div>
+     <div> 
+      <button id="scrollToTopBtn"><i class="fas fa-chevron-up"></i></button>
+      <button id="scrollToDownBtn"><i class="fas fa-chevron-down"></i></button>
+    </div>
+
+    
+                    <script src="https://kit.fontawesome.com/919bc986f5.js" crossorigin="anonymous"></script>
+    
+  
+
+
+<script src="scripts/template.js"></script>
+<script src="scripts/PokeApi.js"></script>
+<script src="scripts/modal.js"></script>
+<script src="scripts/displayPokemon.js"></script>
+<script src="scripts/searchPokemon.js"></script>
+
+</body>
+</html>
